@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% block content %}
+<div class="row" id="list">
+  {% if all_books %}
+  <div>
+    <table class="table table-dark" id="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Autor</th>
+          <th>Puntos</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+        {% for books in all_books %}
+        <tr id="data" class="table-active">
+          <td id="name">📗 {{ books.name }}</td>
+          <td id="autor">🖋 {{ books.autor }}</td>
+          <td id="rating">🌟 {{ books.rating }}</td>
+        </tr>
+        <tr>
+          <td colspan="3" class="text-center" id="btns">
+            <a href="edit/{{ books.id }}" id="edit-btn" class="submit-btn">Editar</a>
+            <a href="delete/{{ books.id }}" id="delete-btn" class="submit-btn">Borrar</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div id="btn">
+      <a href="add/" class="submit-btn" id="submit-btn">Agregar libro</a>
+    </div>
+  </div>
+  {% else %}
+  <p class="text-center" id="not-books">No hay libros en este momento.</p>
+  <div id="btn">
+    <a href="add/" id="btn-add">Agregar libro</a>
+  </div>
+  {% endif %}
+</div>
+{% endblock content %}
