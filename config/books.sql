@@ -1,0 +1,6 @@
+CREATE TABLE books(
+    id int AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    autor VARCHAR(20) NOT NULL,
+    rating FLOAT NOT NULL
+);
